@@ -4,14 +4,16 @@ CSCI 5117, Fall 2017, [assignment description](https://docs.google.com/document/
 
 ## App Info:
 
-* Team Name: TODO
-* App Name: TODO
+* Team Name: DROP TABLE teams;--
+* App Name: Project Sharing!
 * App Link: <https://TODO.herokuapp.com/>
 
 ### Students
 
-* First Last, x500@umn.edu
-* ...
+* Aishwarya Gune, gune0016@umn.edu
+* Benji Fischman, fisch885@umn.edu
+* Connor McCrory, mccro016@umn.edu
+* Michael Wang,   wang4860@umn.edu
 
 
 ## Key Features
