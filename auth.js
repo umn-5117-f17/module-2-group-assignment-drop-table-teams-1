@@ -4,6 +4,13 @@ const express = require('express');
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
 
+// console.log(process.env.AUTH0_DOMAIN);
+// console.log(process.env.AUTH0_CLIENT_ID);
+// console.log(process.env.AUTH0_CLIENT_SECRET);
+// console.log(process.env.AUTH0_CALLBACK_URL);
+
+console.log(process.env);
+
 debug(`auth0: domain=${process.env.AUTH0_DOMAIN}`)
 
 passport.use(new Auth0Strategy(
