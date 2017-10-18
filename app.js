@@ -17,6 +17,7 @@ const auth = require('./auth');
 const index = require('./routes/index');
 const db = require('./routes/db');
 const upload = require('./routes/upload');
+const api = require('./routes/api');
 
 const app = express();
 
@@ -52,6 +53,7 @@ app.use('/', index);
 app.use('/', auth.router);
 app.use('/db', db);
 app.use('/upload', upload);
+app.use('/api', api);
 app.get('/protected', ensureLoggedIn('/login'), function(req, res, next) {
   res.render('protected');
 });
