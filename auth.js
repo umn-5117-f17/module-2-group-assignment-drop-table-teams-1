@@ -71,8 +71,7 @@ router.get(
   }),
   function(req, res) {
     var user = req.user;
-    // create(req, user);
-    // deleteUser(req, user);
+    console.log(req.user);
     req.db.collection('Users').find().forEach(console.log);
     console.log('done');
     res.redirect(req.session.returnTo || '/');
@@ -126,6 +125,7 @@ var update = function(req, user) {
   var db = req.db.collection('Users');
   // var query = req.body;
   //use the information of the body above to update ALL fields of a given user.
+  //TODO change the update to do something meaningful that isn't set 'name' to michael
   db.findOneAndUpdate({'userId': user._json.sub}, {$set : {'name': 'Michael'}});
   console.log('User profile has been updated.');
 };
