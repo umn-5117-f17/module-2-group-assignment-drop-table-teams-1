@@ -1,20 +1,56 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{{title}}</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel="icon" href="/favicon.ico" />
-  </head>
-  <body>
+<head>
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel="icon" href="/favicon.ico" />
+</head>
+<body>
 
-    <nav class="navbar is-light">
-      <div class="navbar-menu">
+  <div id="topNav" class="navigation">
+  <div id="closebtn" onclick="myFunction(this)">
+  <div class="bar1"></div>
+  <div class="bar2"></div>
+  <div class="bar3"></div>
+  </div>
+
+<ul class="menulist" style="display: none;">
+  <li><a class="menuitems" href="#new_proj">New Project</a></li>    
+  <li><a class="menuitems" href="#my_projs">My Projects</a></li>       
+  <li><a class="menuitems" href="#account">Edit Account</a></li>
+  <li><a class="menuitems" href="#logout">Logout</a></li>
+</ul>     
+
+
+<form class="search-form">
+      <input type="text">
+      <button>Search</button>
+    </form>
+</div>
+ <!--  <nav class="menu">
+
+    <ul class="active">
+      <li class="current-item"><a href="#new_proj">New Project</a></li>
+      <li><a href="#my_projs">My Projects</a></li>
+      <li><a href="#account">Edit Account Profile</a></li>
+      <li><a href="#logout">Logout</a></li>
+    </ul>
+
+    <a class="toggle-nav" href="#">&#9776;</a>
+
+    <form class="search-form">
+      <input type="text">
+      <button>Search</button>
+    </form> -->
+
+
+      <!-- <div class="navbar-menu">
         <div class="navbar-start">
           <a class="navbar-item title" href="/">5117 Express Project Template</a>
-        </div>
-        <div class="navbar-end">
+         </div>
+         <div class="navbar-end">
           {{#if user}}
             <span class="navbar-item">
               <figure class="image is-16x16">
@@ -28,8 +64,9 @@
             <a class="navbar-item" href="/login">log in</a>
           {{/if}}
         </div>
-      </div>
-    </nav>
+      </div> -->
+    <!-- </nav> -->
+  
 
     <section class="section">
       <div class="content">
@@ -40,7 +77,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="/javascripts/local.js"></script>
     {{#each scripts}}
-      <script src="/javascripts/{{this}}"></script>
+    <script src="/javascripts/{{this}}"></script>
     {{/each}}
   </body>
-</html>
+  </html>
