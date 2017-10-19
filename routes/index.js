@@ -6,6 +6,7 @@ router.get('/', function(req, res, next) {
   req.db.collection('projects').find().toArray(function(err, results){
     //console.log(results);
     res.render('index', { title: 'Project Sharing', projects: results});
+
   });
   // res.render('index', {
   //   user: req.user

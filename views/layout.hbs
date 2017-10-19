@@ -1,46 +1,57 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{{title}}</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel="icon" href="/favicon.ico" />
-  </head>
-  <body>
+<head>
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel="icon" href="/favicon.ico" />
+</head>
+<body>
 
-    <nav class="navbar is-light">
-      <div class="navbar-menu">
-        <div class="navbar-start">
-          <a class="navbar-item title" href="/">5117 Express Project Template</a>
-        </div>
-        <div class="navbar-end">
-          {{#if user}}
-            <span class="navbar-item">
-              <figure class="image is-16x16">
-                <img src="{{ user.picture }}" alt="Image">
-              </figure>
-              &nbsp;
-              {{ user.displayName }}
-            </span>
-            <a class="navbar-item" href="/logout">log out</a>
-          {{else}}
-            <a class="navbar-item" href="/login">log in</a>
-          {{/if}}
-        </div>
-      </div>
-    </nav>
+  <div id="topNav" class="navigation">
+  <div id="closebtn" onclick="myFunction(this)">
+  <div class="bar1"></div>
+  <div class="bar2"></div>
+  <div class="bar3"></div>
+  </div>
+
+<ul class="menulist" style="display: none;">
+  <li><a class="menuitems" href="#new_proj">New Project</a></li>    
+  <li><a class="menuitems" href="#my_projs">My Projects</a></li>       
+  <li><a class="menuitems" href="#account">Edit Account</a></li>
+  <li><a class="menuitems" href="#logout">Logout</a></li>
+</ul>     
+
+
+<form class="search-form" action="/search" method="post">
+      <input type="text">
+      <button>Search</button>
+    </form>
+</div>
+
 
     <section class="section">
       <div class="content">
         {{{body}}}
       </div>
+<div class="w3-center">
+<div class="w3-bar">
+  <a href="#" class="w3-bar-item w3-button">&laquo;</a>
+  <a href="#" class="w3-button">1</a>
+  <a href="#" class="w3-button">2</a>
+  <a href="#" class="w3-button">3</a>
+  <a href="#" class="w3-button">4</a>
+  <a href="#" class="w3-button">&raquo;</a>
+</div>
+</div> 
     </section>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="/javascripts/local.js"></script>
     {{#each scripts}}
-      <script src="/javascripts/{{this}}"></script>
+    <script src="/javascripts/{{this}}"></script>
     {{/each}}
   </body>
-</html>
+  </html>

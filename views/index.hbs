@@ -1,22 +1,43 @@
 <div class="index-page">
-  <h1>Demos:</h1>
+
+<script type="text/javascript">
+	function mean(x){
+	var sum;
+	for (var i = x.length - 1; i >= 0; i--) {
+		sum = sum +x[i];
+		}
+	var mean = sum/x.length;
+	return mean;}
+
+</script>
+  <h1 style="text-align: center; color:turquoise;">Projects</h1>
+  <div class="projects-container">
   <ul>
-    <li><a href="/db">db</a></li>
-    <li><a href="/upload">file upload</a></li>
-    <li><a href="/protected">protected page</a></li>
-    <li><a href="/user/read">profile</a></li>
+  {{#each projects}}
+    <li id="project" style="background: url('{{this.pdfProject}}')"><div id="hover-content">{{this.description}}
+    </div><div class="project" id="project{{this._id}}"> <div class="title"> {{this.title}}</div> <div class="rating"></div><form class="rating_submit" action="/rate" method="post">
+  <div class="rating">
+    <label>☆
+      <input type="radio" name="starValue" value="5" />
+    </label>
+    <label>☆
+      <input type="radio" name="starValue" value="4" />
+    </label>
+    <label>☆
+      <input type="radio" name="starValue" value="3" />
+    </label>
+    <label>☆
+      <input type="radio" name="starValue" value="2" />
+    </label>
+    <label>☆
+      <input type="radio" name="starValue" value="1" />
+    </label>
+  </div>
+</form></div>	</li>
+    {{/each}}
   </ul>
-  <button type="button" id='createButton'>Create Profile</button>
-  <button type="button" id='readButton'>Read Profiles</button>
-  <button type="button" id='deleteButton'>Delete Profile</button>
+
 </div>
 
-<div class="columns is-multiline">
-    {{#each projects}}
-      <div class="column is-one-quarter" id="proj_{{this._id}}">
-        <img src="http://localhost:5000/api/picture/{{this._id}}">
-        <p>{{this.title}}</p>
-        <p>{{this.userId}}</p>
-      </div>
-    {{/each}}
-</div>
+
+</div> 
