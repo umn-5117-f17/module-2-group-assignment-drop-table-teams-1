@@ -13,10 +13,12 @@ const MongoStore = require('connect-mongo')(session);
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
 
 const auth = require('./auth');
+const user = require('./user');
 
 const index = require('./routes/index');
 const db = require('./routes/db');
 const upload = require('./routes/upload');
+const profile = require('./routes/profile');
 
 const app = express();
 
@@ -36,6 +38,9 @@ app.use(
     secret: process.env.SESSION_SECRET,
     store: new MongoStore({ url: process.env.DB_URI }),
     resave: true,
+    cookie: {
+      maxAge: 7 * 24 * 60 * 1000
+    },
     saveUninitialized: true
   })
 );
@@ -55,6 +60,8 @@ app.use('/upload', upload);
 app.get('/protected', ensureLoggedIn('/login'), function(req, res, next) {
   res.render('protected');
 });
+app.use('/profile', profile);
+app.use('/user', user);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

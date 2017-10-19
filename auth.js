@@ -8,11 +8,6 @@ const Auth0Strategy = require('passport-auth0');
 
 debug(`auth0: domain=${process.env.AUTH0_DOMAIN}`)
 
-// console.log(process.env.AUTH0_DOMAIN);
-// console.log(process.env.AUTH0_CLIENT_ID);
-// console.log(process.env.AUTH0_CLIENT_SECRET);
-// console.log(process.env.AUTH0_CALLBACK_URL);
-
 passport.use(new Auth0Strategy(
   {
     domain: process.env.AUTH0_DOMAIN,
@@ -70,72 +65,9 @@ router.get(
     failureRedirect: '/'
   }),
   function(req, res) {
-    var user = req.user;
-    console.log(req.user);
-    req.db.collection('Users').find().forEach(console.log);
-    console.log('done');
     res.redirect(req.session.returnTo || '/');
   }
 );
 
-//The following creates a user JSON object in the database.
-var create = function(req, user) {
-  var userObj = {
-    'userId' : user._json.sub,
-    'profilePic': user.picture,
-    // 'name': user.name.givenName + ' ' + user.name.familyName
-    'name' : user.nickname
-    // title:
-    // focusArea:
-    // project_Id: [
 
-    // ]
-    // cumRating:
-  };
-  var db = req.db.collection('Users');
-  db.findOne({'userId': user._json.sub}).then(
-    function(results){
-      if(results == null){
-        db.insertOne(userObj);
-        console.log('New User Created');
-        res.status(200).send('success');
-      }else {
-        console.log('User already exists');
-      }
-    }
-  );
-};
-
-//The following retrieves a user JSON object from the database.
-var read = function(req, user) {
-  var db = req.db.collection('Users');
-  db.findOne({'userId': user._json.sub}).then(
-    function(results){
-      if(results){
-        console.log(results);
-      } else {
-        console.log('User not found');
-      }
-    }
-  );
-};
-
-//The following updates a user JSON object in the database.
-var update = function(req, user) {
-  var db = req.db.collection('Users');
-  // var query = req.body;
-  //use the information of the body above to update ALL fields of a given user.
-  //TODO change the update to do something meaningful that isn't set 'name' to michael
-  db.findOneAndUpdate({'userId': user._json.sub}, {$set : {'name': 'Michael'}});
-  console.log('User profile has been updated.');
-};
-
-//The following deletes a user JSON object from the database.
-var deleteUser = function(req, user) {
-  var db = req.db.collection('Users');
-  db.deleteOne({'userId' : user._json.sub});
-  // db.deleteMany({'name' : 'Michael'}).then(function(results){
-    // console.log('User profile has been deleted');
-  // });
-};
 module.exports.router = router;

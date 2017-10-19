@@ -1,0 +1,28 @@
+<table>
+  <tr>
+    <td>Profile Pic Goes Here</td>
+    <td></td>
+  </tr>
+  <form action="/user/update" type="GET" enctype="application/x-www-form-urlencoded">
+    <tr>
+      <td>{{user.name}}</td>
+      <td><input type="text" name="name" placeholder="Full Name"></td>
+    </tr>
+    <tr>
+      <td>{{user.title}}</td>
+      <td><input type="text" name="title" placeholder='Title'></td>
+    </tr>
+    <tr>
+      <td>{{user.focusArea}}</td>
+      <td><input type="text" name="focusArea" placeholder="Focus Area"></td>
+    </tr>
+    <tr>
+      <td>Cumulative Rating</td>
+      <td>{{user.cumRating}}</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="submit" value='Save Changes'></td>
+    </tr>
+  </form>
+</table>
