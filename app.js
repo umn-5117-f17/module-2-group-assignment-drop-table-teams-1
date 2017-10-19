@@ -10,6 +10,7 @@ const expressMongoDb = require('express-mongo-db');
 const passport = require('passport');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+const _ = require('lodash');
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
 
 const auth = require('./auth');
@@ -19,6 +20,7 @@ const db = require('./routes/db');
 const upload = require('./routes/upload');
 
 const app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

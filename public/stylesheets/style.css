@@ -26,6 +26,7 @@
 
 .menulist {
     width:200px;
+
 }
  .section{
  	position: element("#topNav");
@@ -157,4 +158,84 @@
     float:right;
     display:inline-block;
   
+}
+
+/*Index Page*/
+.projects-container {
+    position:relative;
+
+    width: 900px;
+    left:530px;
+}
+.projects-container ul { 
+    position: absolute;
+    margin: auto;
+    padding: 10px; /* remove default padding and all margins! */
+/*    margin-left: 5;
+    margin-right:5;*/
+    list-style-type: none; /* remove the • */
+}
+.projects-container ul li {
+    width: 250px;
+    height: 250px;
+    margin: 5px 5px 5px 5px;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    background-repeat: no-repeat !important;
+
+}
+.project{
+    position: absolute;
+    float: bottom;
+    display: flex;
+    width:100%
+    height: 250px !important;
+}
+
+
+.title {
+   display:inline-block;
+    margin: 0 auto;
+    height:50%;
+    color:turquoise;
+}
+/* Star ratings */
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  position: relative;
+  margin-top: 100px;
+  margin-right:40px;
+}
+.rating > label {
+
+  display:block;
+  position: relative;
+
+  width: 1.1em;
+  color:yellow;
+}
+.rating > label.active:before,
+.rating > label.active ~ label:before,
+.rating > label:hover:before,
+.rating > label:hover ~ label:before {
+  content: "\2605";
+  position: absolute;
+}
+.rating input{
+  display: none;
+}
+
+
+/* Hover Interaction */
+#hover-content {
+    display:none;
+}
+
+
+ body {
+    margin: 0;
+    padding: 0;
+    position: relative;
 }
