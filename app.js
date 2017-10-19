@@ -61,7 +61,6 @@ app.use('/api', api);
 app.get('/protected', ensureLoggedIn('/login'), function(req, res, next) {
   res.render('protected');
 });
-app.use('/profile', profile);
 app.use('/user', user);
 
 app.get('/upload', ensureLoggedIn('/login'), function(req, res, next) {
