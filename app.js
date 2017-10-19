@@ -18,7 +18,7 @@ const user = require('./user');
 const index = require('./routes/index');
 const db = require('./routes/db');
 const upload = require('./routes/upload');
-const profile = require('./routes/profile');
+const api = require('./routes/api');
 
 const app = express();
 
@@ -57,11 +57,18 @@ app.use('/', index);
 app.use('/', auth.router);
 app.use('/db', db);
 app.use('/upload', upload);
+app.use('/api', api);
 app.get('/protected', ensureLoggedIn('/login'), function(req, res, next) {
   res.render('protected');
 });
 app.use('/profile', profile);
 app.use('/user', user);
+
+app.get('/upload', ensureLoggedIn('/login'), function(req, res, next) {
+  res.render('upload', {
+    scripts: ['file-upload.js'],
+  });
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -10,3 +10,13 @@
   <button type="button" id='readButton'>Read Profiles</button>
   <button type="button" id='deleteButton'>Delete Profile</button>
 </div>
+
+<div class="columns is-multiline">
+    {{#each projects}}
+      <div class="column is-one-quarter" id="proj_{{this._id}}">
+        <img src="http://localhost:5000/api/picture/{{this._id}}">
+        <p>{{this.title}}</p>
+        <p>{{this.userId}}</p>
+      </div>
+    {{/each}}
+</div>
