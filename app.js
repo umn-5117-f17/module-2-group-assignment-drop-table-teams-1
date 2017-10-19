@@ -58,6 +58,12 @@ app.get('/protected', ensureLoggedIn('/login'), function(req, res, next) {
   res.render('protected');
 });
 
+app.get('/upload', ensureLoggedIn('/login'), function(req, res, next) {
+  res.render('upload', {
+    scripts: ['file-upload.js'],
+  });
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   let err = new Error('Not Found');

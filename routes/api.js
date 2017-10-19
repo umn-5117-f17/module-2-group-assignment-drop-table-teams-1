@@ -8,11 +8,12 @@ var util = require('util');
 
 router.post('/insertProject', upload.single('ajaxfile'), function(req, res, next) {
   console.log("here in the server");
-  console.log(req.body);
+  //console.log(req.user)
+  //console.log(req.body);
   if (!req.file) {
     res.status(500).send('error: no file');
   }
-  if (req.file.mimetype == 'application/pdf') {
+  if (req.file.mimetype == 'image/jpeg') {
     // read the img file from tmp in-memory location
     var newImg = fs.readFileSync(req.file.path);
     // encode the file as a base64 string.
@@ -25,7 +26,7 @@ router.post('/insertProject', upload.single('ajaxfile'), function(req, res, next
     var newItem = {
       createDate: new Date(),
       lastEditDate: "unimplemented",
-      userId: "unimplemented",
+      userId: req.user.displayName,
       collaboratorId: "unimplemented",
        description: req.body.description,
        contentType: req.file.mimetype,
@@ -42,19 +43,16 @@ router.post('/insertProject', upload.single('ajaxfile'), function(req, res, next
     req.db.collection('projects').insertOne(newItem, function(err, results) {
       //res.status(200).send('success');
     });
-    // db.collection('projects')
-    //    .insert(newItem, function(err, result){
-    //    if (err) { console.log(err); };
-    //       var newoid = new ObjectId(result.ops[0]._id);
-    //       fs.remove(req.file.path, function(err) {
-    //          if (err) { console.log(err) };
-    //          res.render('index', {title:'Thanks for the Picture!'});
-    //          });
-    //       });
   } else {
     console.log('got a non-pdf file. You submitted a ' + req.file.mimetype);
   }
   // response
+  var js = {
+    userID: req.user.displayName,
+    title: req.body.title,
+    proj: req.file.originalname
+  };
+  //res.redirect("/thanks");
   res.json({
     'filename': req.file.originalname,
     'mimetype': req.file.mimetype,
@@ -149,6 +147,22 @@ router.post('/updateUser', function(req, res, next) {
       res.status(200).send('success');
     });
 
+});
+
+router.get('/picture/:picture', function(req, res){
+  console.log("in get picture");
+  // assign the URL parameter to a variable
+  var filename = req.params.picture;
+  req.db.collection('projects')
+    .findOne({'_id': ObjectId(filename)}, function(err, results){
+    // set the http response header so the browser knows this
+    // is an 'image/jpeg' or 'image/png'
+  //console.log("title = " + results.title);
+  res.setHeader('content-type', results.contentType);
+    // send only the base64 string stored in the img object
+    // buffer element
+  res.send(results.pdfProject.buffer);
+  });
 });
 
 

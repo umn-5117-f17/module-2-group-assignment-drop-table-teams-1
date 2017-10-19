@@ -25,6 +25,7 @@ $(function() {
     console.log('form data');
     console.log("title " + fd.get('title'));
 
+
     $.ajax({
       url: '/api/insertProject',
       data: fd,
@@ -33,7 +34,7 @@ $(function() {
       type: 'POST',
       success: function(res) {
         console.log('response', res);
-        $('#ajaxResponse').html(JSON.stringify(res));
+        window.location.href = "http://localhost:5000/thanks";
       }
     });
   });

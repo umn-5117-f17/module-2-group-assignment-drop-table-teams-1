@@ -1,16 +1,17 @@
 <div class="upload-page content">
 
   <h1>Project Upload</h1>
+  <h3>Upload your latest project {{user.nickname}}</h3>
 
   <form class="box" action="/upload/upload-file-form" enctype="multipart/form-data" method="post" id="theform">
     <p>
       <label class="label" for="title">Title</label>
-      <input class="input" id="title" type="text" name="title">
+      <input class="input" id="title" type="text" name="title" required>
     </p>
     <label class="label" for="subject">Subject</label>
     <div class="select">
-      <select id="subject">
-        <option>...</option>
+      <select id="subject" required>
+        <option value=""></option>
         <option value="Biology">Biology</option>
         <option value="History">History</option>
         <option value="CSCI">Computer Science</option>
@@ -19,16 +20,16 @@
     </div>
     <p>
       <label class="label" for="tags">Tags</label>
-      <input class="input" id="tags" type="text" name="tags">
+      <input class="input" id="tags" type="text" name="tags" required>
     </p>
     <p>
       <label class="label" for="description">Description</label>
-      <input class="input" id="description" type="text" name="description">
+      <input class="input" id="description" type="text" name="description" required>
     </p>
 
     <div class="file has-name" id="file-chooser-widget">
       <label class="file-label">
-        <input class="file-input" id="theinputfield" type="file" name="thefile">
+        <input class="file-input" id="theinputfield" type="file" name="thefile" required>
         <span class="file-cta">
           <span class="file-icon">
             <i class="fa fa-upload"></i>
@@ -47,14 +48,4 @@
       <input class="button" type="button" value="Send file (ajax)" id="insertProject">
     </p>
   </form>
-
-  <article class="message">
-    <div class="message-header">
-      <p>AJAX response</p>
-    </div>
-    <div class="message-body">
-      <div id="ajaxResponse">(...)</div>
-    </div>
-  </article>
-
 </div>
