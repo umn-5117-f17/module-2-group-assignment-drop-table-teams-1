@@ -165,7 +165,7 @@
     position:relative;
 
     width: 900px;
-    left:530px;
+    left:330px;
 }
 .projects-container ul { 
     position: absolute;
@@ -227,6 +227,13 @@
   display: none;
 }
 
+
+/* pagnation */
+
+.w3-center{
+    position: absolute;
+    margin: 700px 0px 0px 625px; 
+}
 
 /* Hover Interaction */
 #hover-content {
