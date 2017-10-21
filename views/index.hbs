@@ -1,43 +1,72 @@
 <div class="index-page">
 
-<script type="text/javascript">
-	function mean(x){
-	var sum;
-	for (var i = x.length - 1; i >= 0; i--) {
-		sum = sum +x[i];
-		}
-	var mean = sum/x.length;
-	return mean;}
+  <script type="text/javascript">
 
-</script>
+  	function mean(x){
+     var sum;
+     for (var i = x.length - 1; i >= 0; i--) {
+      sum = sum +x[i];
+    }
+    var mean = sum/x.length;
+    return mean;}
+
+  </script>
+
+
+<div class="search-filter"> <div class="center">
+  <button class="button button--secondary" id="last-five-years-filter-button">Last Five Years</button>
+  <button class="button button--secondary" id="published-filter-button">Published</button>
+   <button class="button button--secondary" id="has-pdf-filter-button">Has PDF</button>
+    
+     <button class="button button--secondary" id="Has Talk-filter-button">Has Talk</button>
+  </div>
+</div>
+  <div class="widget-wrapper">
+
+
+      <aside id="search-2" class="search-wrapper">  <form method="post" id="searchform" action="/search">
+        <label for="s" class="assistive-text"></label>
+        <input type="text" class="field" name="s" id="s" placeholder="Search" />
+        <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+      </form>
+    </aside>
+
+    <aside id="recent-posts-2" class="widget widget_recent_entries">
+
+      <h3 class="widget-title">Popular Posters</h3>
+      {{#each recentPosts}}
+      <li id="recentPosts"> 
+        <a href='http://localhost:5000/api/project/{{this._id}}'> {{this.title}}</a>
+      </li>
+      {else}
+      <li id="recentPosts"> 
+        <a href='http://localhost:5000/api/project/{{this._id}}'> no content</a>
+      </li>
+      {{/each}}
+    }
+  </aside>
+</div>
   <h1 style="text-align: center; color:turquoise;">Projects</h1>
   <div class="projects-container">
-  <ul>
-  {{#each projects}}
-    <li id="project" style="background: url('http://localhost:5000/api/picture/{{this._id}}')"><div id="hover-content">{{this.description}}
-    </div><div class="project" id="project{{this._id}}"> <div class="title"> {{this.title}}</div> <div class="rating"></div><form class="rating_submit" action="/rate" method="post">
-  <div class="rating">
-    <label>☆
-      <input type="radio" name="starValue" value="5" />
-    </label>
-    <label>☆
-      <input type="radio" name="starValue" value="4" />
-    </label>
-    <label>☆
-      <input type="radio" name="starValue" value="3" />
-    </label>
-    <label>☆
-      <input type="radio" name="starValue" value="2" />
-    </label>
-    <label>☆
-      <input type="radio" name="starValue" value="1" />
-    </label>
-  </div>
-</form></div>	</li>
-    {{/each}}
-  </ul>
+    <ul>
+      {{#each projects}}
+      <li id="project-list">
+     
+        <div id="hover-content">{{this.description}}
+      </div><div class="project" id="project{{this._id}}">
+        <figure width="250" height="250">
+    <img src='http://localhost:5000/api/picture/{{this._id}}' alt='missing' />
+    <figcaption>{{this.title}}</figcaption>
+    <figcaption>timestamp. no stars</figcaption>
+</figure>
+      <div class="rating">
+       </div></div></li>
+        {{/each}}
+      </ul>
 
-</div>
+    </div>
+  </div>  
 
 
-</div>
+
+

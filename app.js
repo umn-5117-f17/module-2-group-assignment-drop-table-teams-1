@@ -20,6 +20,7 @@ const index = require('./routes/index');
 const db = require('./routes/db');
 const upload = require('./routes/upload');
 const api = require('./routes/api');
+const project = require('./routes/project');
 
 const app = express();
 
@@ -27,6 +28,7 @@ const app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+app.use('/viewer', express.static('node_modules/node-viewerjs/release'));
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -60,6 +62,7 @@ app.use('/', auth.router);
 app.use('/db', db);
 app.use('/upload', upload);
 app.use('/api', api);
+app.use('/project',project);
 app.get('/protected', ensureLoggedIn('/login'), function(req, res, next) {
   res.render('protected');
 });

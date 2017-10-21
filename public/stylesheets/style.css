@@ -75,7 +75,10 @@
     }
 }
 
- 
+.widget-wrapper {
+    float:right;
+
+}
     .menulist ul {
         width:100%;
         position:absolute;
@@ -160,24 +163,62 @@
   
 }
 
-/*Index Page*/
-.projects-container {
-    position:relative;
 
-    width: 900px;
-    left:330px;
+
+
+/*Index Page*/
+
+/*Filter*/
+
+.search-filter{
+    width:100%;
+    height:80px;
+
+
 }
-.projects-container ul { 
-    position: absolute;
-    margin: auto;
-    padding: 10px; /* remove default padding and all margins! */
-/*    margin-left: 5;
-    margin-right:5;*/
-    list-style-type: none; /* remove the • */
+
+.center{
+    background-color:#f9f9f9;
+    text-align:right;
+}
+
+.center div{
+    display:inline-block;
+    margin-left:5px;
+    margin-right:5px;
+    color:#FFF;
+    background-color:darkgray;
+}
+.projects-container {
+    position:absolute;
+
+    width: 1100px;
+    height:100%;
+    margin:0px 130px 0px 0px;
+}
+
+.projects-container ul {
+    position:absolute;
+
+    width: 1100px;
+    margin:0px 0px 0px 130px;
+}
+
+.center-project{
+    background-color:#f9f9f9;
+    text-align:left;
+}
+
+.center-project div{
+    display:inline-block;
+    margin-left:5px;
+    margin-right:5px;
+    color:#FFF;
+    background-color:darkgray;
 }
 .projects-container ul li {
-    width: 250px;
-    height: 250px;
+    width: 350px;
+    height: 350px;
     margin: 5px 5px 5px 5px;
     float: left;
     overflow: hidden;
@@ -189,10 +230,18 @@
     position: absolute;
     float: bottom;
     display: flex;
-    width:100%
-    height: 250px !important;
+    width:100%;
+    height: 100%
 }
+.rating_init{
+    display: none;
+}
+figure{
+    position: relative;
+    max-height: 250px;
+    min-width:250px;
 
+}
 
 .title {
    display:inline-block;
@@ -205,9 +254,16 @@
   unicode-bidi: bidi-override;
   direction: rtl;
   position: relative;
-  margin-top: 100px;
-  margin-right:40px;
+  min-height: 30;
+  min-width: 100;
+  margin: 350px 0px 0px 0px ;
+ 
+ }
+.poster-pic{
+    float: center;
 }
+
+
 .rating > label {
 
   display:block;
@@ -245,4 +301,11 @@
     margin: 0;
     padding: 0;
     position: relative;
+}
+
+/* Project PAge*/
+
+#project-image{
+    width:500px;
+    height: 300px;
 }
