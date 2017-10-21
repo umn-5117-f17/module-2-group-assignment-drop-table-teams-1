@@ -177,17 +177,22 @@
 
 }
 
+.project_header{
+    position: relative;
+    display:inline-block;
+    width:80%;
+}
+
 .center{
-    background-color:#f9f9f9;
+    
     text-align:right;
+    display:inline-block
 }
 
 .center div{
     display:inline-block;
     margin-left:5px;
     margin-right:5px;
-    color:#FFF;
-    background-color:darkgray;
 }
 .projects-container {
     position:absolute;
@@ -207,6 +212,7 @@
 .center-project{
     background-color:#f9f9f9;
     text-align:left;
+    max-width: 50%
 }
 
 .center-project div{
@@ -259,28 +265,24 @@ figure{
   margin: 350px 0px 0px 0px ;
  
  }
-.poster-pic{
-    float: center;
+
+
+
+ .rating {
+  unicode-bidi: bidi-override;
+  direction: ltr;
+  max-height: 10% !important;
+  margin:5px 75px 0px 0px;
 }
-
-
-.rating > label {
-
-  display:block;
+.rating > span {
+  display: inline-block;
   position: relative;
-
   width: 1.1em;
-  color:yellow;
 }
-.rating > label.active:before,
-.rating > label.active ~ label:before,
-.rating > label:hover:before,
-.rating > label:hover ~ label:before {
-  content: "\2605";
-  position: absolute;
-}
-.rating input{
-  display: none;
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
 }
 
 
@@ -305,7 +307,39 @@ figure{
 
 /* Project PAge*/
 
-#project-image{
-    width:500px;
-    height: 300px;
+.poster-pic{
+    position: absolute;
+    margin: 0px 0px 200px 500px;
+    z-index: 1;
+    float:center;
+}
+
+.poster-pic img{
+    margin:0px 0px 0px 0px;
+    position: relative;
+}
+.poster-pic h1{
+    margin:0px 0px 0px 0px;
+    text-align: center;
+    position: relative;
+}
+
+.profile-pic{
+    margin: 0px 0px 0px 0px;
+}
+#prof-pic-wrap{
+    margin:20px 0px 0px 0px;
+    max-width:20%;
+    
+    
+}
+.comments-section{
+    position: absolute;
+}
+.comments-section input {
+    vertical-align: top;
+}
+.comments-section textarea {
+    float: bottom;
+    vertical-align: top;
 }
