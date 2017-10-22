@@ -149,6 +149,19 @@ router.post('/updateUser', function(req, res, next) {
 
 });
 
+router.post('/search', function(req, res, next) {
+    console.log("tst");
+    var search_text = req.body.search;
+    console.log(search_text);
+    //res.status(200).send('success');
+    req.db.collection('projects').find({'tags' : search_text}, function(err, results){
+      console.log(results);
+      res.status(200).send('success');
+    });
+    console.log("after query");
+    //console.log(results);
+});
+
 router.get('/picture/:picture', function(req, res){
   console.log("in get picture");
   // assign the URL parameter to a variable
