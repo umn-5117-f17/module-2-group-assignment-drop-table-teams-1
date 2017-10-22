@@ -1,0 +1,13 @@
+<h1>{{this.title}}</h1>
+<h2>{{this.subject}}</h2>
+<h2>User</h2>
+<h3>{{this.userId}}</h3>
+<h2>Project Tags</h1>
+<ul>
+  {{#each tags}}
+  <li>{{this}}</li>
+  {{/each}}
+</ul>
+<img src="http://localhost:5000/api/picture/{{this._id}}">
+<div id="stars">
+</div>
