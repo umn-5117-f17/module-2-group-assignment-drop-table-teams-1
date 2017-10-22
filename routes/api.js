@@ -26,7 +26,7 @@ router.post('/insertProject', upload.single('ajaxfile'), function(req, res, next
     var newItem = {
       createDate: new Date(),
       lastEditDate: "unimplemented",
-      userId: req.user.displayName,
+      userId: req.user.nickname,
       collaboratorId: "unimplemented",
        description: req.body.description,
        contentType: req.file.mimetype,
@@ -163,6 +163,15 @@ router.get('/picture/:picture', function(req, res){
     // buffer element
   res.send(results.pdfProject.buffer);
   });
+});
+
+router.get('/project/:proj', function(req, res){
+  var id = req.params.proj;
+  console.log("project id is = " + id);
+  req.db.collection('projects')
+    .findOne({'_id': ObjectId(id)}, function(err, results) {
+      res.render('project', results);
+    })
 });
 
 

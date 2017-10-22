@@ -14,7 +14,7 @@
   <div class="projects-container">
   <ul>
   {{#each projects}}
-    <li id="project" style="background: url('http://localhost:5000/api/picture/{{this._id}}')"><div id="hover-content">{{this.description}}
+    <li class="projects" id="project{{this._id}}" style="background: url('http://localhost:5000/api/picture/{{this._id}}')"><div id="hover-content">{{this.description}}
     </div><div class="project" id="project{{this._id}}"> <div class="title"> {{this.title}}</div> <div class="rating"></div><form class="rating_submit" action="/rate" method="post">
   <div class="rating">
     <label>☆

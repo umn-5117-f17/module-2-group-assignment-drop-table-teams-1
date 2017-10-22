@@ -3,7 +3,7 @@ $(function() {
 		var proj_id = $(el).attr('id');
 		console.log(proj_id);
 		//@TODO
-		//Query mongo for project rating, compute mean, set means for html 
+		//Query mongo for project rating, compute mean, set means for html
 	});
 	$('label').click(function() {
     $('label').removeClass('active');
@@ -43,13 +43,11 @@ $(function() {
 
 
 
-$("#project").click(function(){
-//@TODO implement this
-//redirect to project the user clicked on
-//this.getid
-//query mongo
-//request get to project page.
-
+$(".projects").click(function(){
+	var projid = $(this).attr('id').substring(7);
+	console.log(projid);
+	//$.get( "/api/project/" + projid);
+	window.location.href = "http://localhost:5000/api/project/"+ projid;
 });
 
 
@@ -59,4 +57,3 @@ function myFunction(x) {
     x.classList.toggle("change");
     $(".menulist").toggle();
 };
-
