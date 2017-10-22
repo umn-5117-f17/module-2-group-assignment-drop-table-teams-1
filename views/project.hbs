@@ -1,0 +1,54 @@
+<div class="project_header"> 
+  <div class="center-project">
+    <h3>Subject</h3>
+    <button class="button button--secondary" id="subject-filter-button">{{project.subject}}</button>
+  </div>
+
+</div>
+
+  <div class="widget-wrapper">
+    <aside id="recent-posts-2" class="widget widget_recent_entries">
+
+      <h3 class="widget-title">Similar Posters</h3>
+      {{#each recentPosts}}
+      <li id="recentPosts"> 
+        <a href='http://localhost:5000/api/project/{{this._id}}'> {{this.title}}</a>
+      </li>
+
+    </li>
+    {{/each}}
+     <div id="prof-pic-wrap"><h3>Project Author</h3> <img  src="http://localhost:5000/api/picture/{{project.user_id}}" alt="hacksparrow" ></img>
+  </div>
+  <h3> Project Rating</h3>
+  <div class="rating">
+<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+</div>
+  </aside>
+</div>
+
+
+
+<aside class="widget-tags" id="tags-wrapper">
+  <div id="myDIV" class="header">
+  <h1>Project Tags</h1>
+  <input type="text" id="tagsInput" placeholder="keywords">
+  <span id="addTag" class="button button--secondary" id="add-tag-button">Add</span>
+</div>
+  <ul>
+    {{#each tags}}
+    <li id="tags"> 
+      <!-- Need to implement database query for projects with same tags -->
+      <a href='http://localhost:5000/api/project/{{this}}'>{{this}}</a>
+
+    </li>
+    {{/each}}
+  </ul>
+
+</aside>
+
+<div class="poster-pic"> <h1>{{project.title}}</h1><img src="http://localhost:5000/api/picture/{{project._id}}" alt="no pic"> </img> <h4> Description</h4> <textarea name="Text1" cols="40" rows="5"></textarea>  <button class="button button--secondary" id="update-description-button">Update</button>
+
+<div class="comments-section"> <h4> Comments</h4>
+  <form class="new-comment"> <input type="text" class="field" name="comment_name" id="comment_name" placeholder="Your Name" /><textarea name="Text1" cols="40" rows="5"></textarea>  <button class="button button--secondary" id="submit-comment-button">Submit</button></form>
+  <div class=previous-comments></div>
+</div></div>
