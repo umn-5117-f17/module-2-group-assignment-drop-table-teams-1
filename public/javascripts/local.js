@@ -43,7 +43,7 @@ $(function() {
 
 
 
-$(".projects").click(function(){
+$(".project-list").click(function(){
 	var projid = $(this).attr('id').substring(7);
 	console.log(projid);
 	//$.get( "/api/project/" + projid);

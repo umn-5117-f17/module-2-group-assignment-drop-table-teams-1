@@ -18,4 +18,12 @@ router.get('/thanks', function(req, res, next) {
   res.render('thanks', req);
 })
 
+router.get('/my_projs', function(req, res, next) {
+  console.log("name " + req.user.displayName);
+  req.db.collection('projects')
+    .find({'userId': req.user.displayName}).toArray(function(err, results) {
+      res.render('index', { title: 'Project Sharing', projects: results});
+    });
+})
+
 module.exports = router;

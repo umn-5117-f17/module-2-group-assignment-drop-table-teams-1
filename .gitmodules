@@ -1,0 +1,3 @@
+[submodule "public/javascripts/touchpdf"]
+	path = public/javascripts/touchpdf
+	url = https://github.com/loicminghetti/touchpdf.git
