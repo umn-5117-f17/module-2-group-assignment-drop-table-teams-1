@@ -160,6 +160,7 @@ router.post('/search', function(req, res, next) {
     });
     console.log("after query");
     //console.log(results);
+    res.send(results);
 });
 
 router.get('/picture/:picture', function(req, res){
