@@ -48,6 +48,7 @@ router.get(
     scope: 'openid profile'
   }),
   function(req, res, err) {
+    //Create a user in the database when they sign in?
     res.redirect('/');
   }
 );

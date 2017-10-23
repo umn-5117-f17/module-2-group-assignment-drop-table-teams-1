@@ -27,9 +27,10 @@ router.get('/create', function(req, res){
       }
     }
   )
+  res.redirect('/account');
 });
 
-router.get('/read', function(req, res){
+router.get('/', function(req, res){
   var db = req.db.collection('Users');
   db.findOne({'userId': req.user._json.sub}).then(
       function(results){
@@ -59,7 +60,7 @@ router.get('/update', function(req, res){
   db.updateOne({'userId': req.user._json.sub}, {$set : {'name': form.name, 'focusArea': form.focusArea, 'title': form.title}}).then(
     function(results){
       console.log('User profile has been updated.');
-      res.redirect('/user/read');
+      res.redirect('/account');
     }
   );
 });
