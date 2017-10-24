@@ -35,10 +35,10 @@ router.get('/', function(req, res){
       function(results){
         if(results){
           var u = results;
-          console.log('this is happening');
+          // console.log('this is happening');
           req.db.collection('projects').find({'userId': req.user._json.sub}).toArray(function(err, results){
-            console.log('the house is on fire');
-            results.forEach(console.log);
+            // console.log('the house is on fire');
+            // results.forEach(console.log);
             res.render('profile',{
               user: u,
               projects: results
