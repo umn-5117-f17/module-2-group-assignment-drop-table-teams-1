@@ -27,7 +27,7 @@ router.get('/create', function(req, res){
       }
     }
   )
-  res.redirect('/');
+  res.redirect('/account');
 });
 
 router.get('/', function(req, res){
@@ -38,8 +38,10 @@ router.get('/', function(req, res){
           res.render('profile',{
             user: results
           });
-          // console.log(results);
+          console.log(results);
         } else {
+          console.log('WTFF');
+          res.redirect('/account/create');
           console.log('User not found');
         }
       }
