@@ -123,6 +123,18 @@ $(".add-tag-button").click(function(){
 	});
 });
 
+function convertDate(dateStr){
+	var timestamp = new Date(dateStr);
+	var month = timestamp.getMonth();
+	var day = timestamp.getDay();
+	var year = timestamp.getFullYear();
+	var result = "".concat(months[month]);
+	result = result +", ";
+	result = result + String(day) +", " + String(year);
+
+	return result;
+};
+
 
 function myFunction(x) {
     x.classList.toggle("change");
