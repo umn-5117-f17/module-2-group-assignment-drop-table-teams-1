@@ -26,7 +26,8 @@ router.post('/insertProject', upload.single('ajaxfile'), function(req, res, next
     var newItem = {
       createDate: new Date(),
       lastEditDate: "unimplemented",
-      userId: req.user.nickname,
+      userId: req.user._json.sub,
+      userName: req.user.nickname,
       collaboratorId: "unimplemented",
        description: req.body.description,
        contentType: req.file.mimetype,
@@ -67,6 +68,14 @@ router.get('/deleteProject/:projid', function(req, res, next) {
       res.status(200).send('success');
     });
 });
+
+router.get('/search', function(req, res, next) {
+  var searchText = req.query.s;
+  req.db.collection('projects').find( { "tags": searchText } ).toArray(function(err, results){
+    // console.log("why aint you rendering");
+    res.render('index', { title: 'Project Sharing', projects: results});
+  });
+})
 
 router.post('/updateProject', function(req, res, next) {
     /*
