@@ -1,0 +1,81 @@
+<div class="project_header container">
+
+  <nav class="level">
+  <!-- Left side -->
+  <div class="level-left">
+    <div class="level-item">
+      <p class="subtitle is-30">
+        Subject
+      </p>
+    </div>
+    <div class="level-item">
+      <a class="button is-Medium is-primary subject-button" href="/subject/{{this.subject}}" id="{{this.subject}}">{{this.subject}}</a>
+    </div>
+
+    <div class="level-item">
+      <p class="subtitle is-20">
+        Tags
+      </p>
+    </div>
+    {{#each this.tags}}
+      <div class="level-item">
+        <a class="button is-small is-info tag-button" href="/tag/{{this}}" id="{{this}}">{{this}}</a>
+      </div>
+    {{/each}}
+  </div>
+  </nav>
+
+</div>
+
+  <div class="widget-wrapper box">
+    <aside id="recent-posts-2" class="widget widget_recent_entries">
+     <div id="prof-pic-wrap">
+       <h1>Author:</h3>
+       <h2 id="author-name">{{this.userId}}</h2>
+     </div>
+  <h3> Project Rating</h3>
+  <div class="rating">
+<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+</div>
+<h3 class="widget-title">Similar Posters</h3>
+{{#each recentPosts}}
+  <li id="recentPosts">
+    <a href='http://localhost:5000/api/project/{{this._id}}'> {{this.title}}</a>
+  </li>
+{{/each}}
+  </aside>
+</div>
+
+
+
+<aside class="widget-tags" id="tags-wrapper">
+  <div id="myDIV" class="header">
+  {{#if user.nickname}}
+  <div class="level-left">
+    <div class="level-item">
+      <input class="input is-info" type="text" id="tagsInput" placeholder="Add a New Tag">
+      <span id="{{this._id}}" class="add-tag-button button is-medium is-info" id="{{this._id}}">Add</span>
+    </div>
+  </div>
+  {{/if}}
+</div>
+</aside>
+
+<div class="poster-pic box">
+  <h1>{{this.title}}</h1>
+  <img src="http://localhost:5000/api/picture/{{this._id}}" alt="no pic" height="500" width="500"> </img>
+  <h4> Description</h4>
+  {{#if user.nickname}}
+  <div class="field">
+    <div class="control">
+      <textarea id="newDesc"class="textarea" placeholder="{{this.description}}"></textarea>
+      <span id="{{this._id}}" class="update-description button is-small is-info">Update</span>
+    </div>
+  </div>
+  {{else}}
+    <p>{{this.description}}</p>
+  {{/if}}
+  {{#if user.nickname}}
+    <span id="{{this._id}}" class="delete-project button is-medium is-danger">Delete Project</span>
+  {{/if}}
+</div>
