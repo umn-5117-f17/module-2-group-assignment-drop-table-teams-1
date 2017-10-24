@@ -1,3 +1,7 @@
+table {
+  display: inline;
+  width: 100%;
+}
 
 .upload-page #file-chooser-widget {
   margin-bottom: 10px;
@@ -15,24 +19,26 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: light;
+    background-color: white;
     box-shadow: 0 4px 4px -3px #232323;
     -moz-box-shadow: 0 4px 4px -3px #232323;
     -webkit-box-shadow: 0 4px 4px -3px #232323;
     overflow: hidden;
     padding-top: 0px;
-
 }
 
 .menulist {
     width:200px;
-
+    padding: 0 0 0.5% 1%;
 }
- .section{
- 	position: element("#topNav");
- 	transform: translate(0px, 150px);
 
- }
+#closebtn {
+  padding: 0.5% 0 0.5% 1%;
+}
+.section{
+	/*position: element("#topNav");*/
+	transform: translate(0px, 150px);
+}
 /*----- Menu -----*/
 
 
@@ -303,13 +309,6 @@ figure{
     display:none;
 }
 
-
- body {
-    margin: 0;
-    padding: 0;
-    position: relative;
-}
-
 /* Project PAge*/
 
 .poster-pic{
@@ -385,19 +384,22 @@ figure{
 
 }
 .profile-info{
-
     display: block;
-position: absolute;
+    position: absolute;
     float: right;
+    width: 100%;
 }
 
 .profile-info span{
 
     display: block;
+}
 
+.profile-info td {
+  width: 50%;
 }
 .account-projects-container {
-    position:absolute;
+    /*position:absolute;*/
 
     width: 1100px;
     height:100%;
@@ -405,7 +407,7 @@ position: absolute;
 }
 
 .account-projects-container ul {
-    position:absolute;
+    /*position:absolute;*/
 
     width: 1100px;
     margin:350px 0px 0px 200px;
@@ -417,7 +419,10 @@ position: absolute;
     margin: 5px 5px 5px 5px;
     float: left;
     overflow: hidden;
-    position: relative;
+    /*position: relative;*/
     background-repeat: no-repeat !important;
+}
 
+#body {
+  padding: 5% 0 0 1%;
 }

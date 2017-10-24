@@ -26,7 +26,7 @@ router.post('/insertProject', upload.single('ajaxfile'), function(req, res, next
     var newItem = {
       createDate: new Date(),
       lastEditDate: "unimplemented",
-      userId: req.user.nickname,
+      userId: req.user._json.sub,
       collaboratorId: "unimplemented",
        description: req.body.description,
        contentType: req.file.mimetype,
