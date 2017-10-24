@@ -37,10 +37,10 @@
 
 
 
- 
+
 /*----- Search -----*/
 
- 
+
 .search-form input {
     width:200px;
     height:30px;
@@ -49,7 +49,12 @@
     border-radius:2px 0px 0px 2px;
     font-size:13px;
 }
- 
+
+#delete-project {
+  margin-top: 25px;
+  text-align: center;
+}
+
 .search-form button {
     height:30px;
     padding:0px 7px;
@@ -68,7 +73,7 @@
         width:90%;
     }
 }
- 
+
 @media screen and (max-width: 970px) {
     .search-form input {
         width:120px;
@@ -89,7 +94,7 @@
         border-radius:3px;
        background-color: #333;;
     }
- 
+
     .menulist ul:after {
         width:0px;
         height:0px;
@@ -102,24 +107,24 @@
         border-right:7px solid transparent;
         border-bottom:7px solid #303030;
     }
- 
+
     .menulist li {
         margin:5px 0px 5px 0px;
         float:none;
         display:block;
-       
+
     }
- 
+
     .menulist a {
         display:block;
     }
 
- 
+
     .search-form {
         margin:12px 0px 0px 20px;
         float:left;
     }
- 
+
     .search-form input {
         box-shadow:-1px 1px 2px rgba(0,0,0,0.1);
     }
@@ -129,7 +134,7 @@
     display: inline-block;
     cursor: pointer;
     width: 100%
-  
+
 
 }
 .bar1, .bar2, .bar3 {
@@ -138,7 +143,7 @@
     background-color: #333;
     margin: 6px 0;
     transition: 0.4s;
-    
+
 }
 
 /* Rotate first bar */
@@ -160,7 +165,7 @@
 .search-form {
     float:right;
     display:inline-block;
-  
+
 }
 
 
@@ -184,7 +189,7 @@
 }
 
 .center{
-    
+
     text-align:right;
     display:inline-block
 }
@@ -263,7 +268,7 @@ figure{
   min-height: 30;
   min-width: 100;
   margin: 350px 0px 0px 0px ;
- 
+
  }
 
 
@@ -290,7 +295,7 @@ figure{
 
 .w3-center{
     position: absolute;
-    margin: 700px 0px 0px 625px; 
+    margin: 700px 0px 0px 625px;
 }
 
 /* Hover Interaction */
@@ -308,8 +313,10 @@ figure{
 /* Project PAge*/
 
 .poster-pic{
+    display: inline-block;
     position: absolute;
-    margin: 0px 0px 200px 500px;
+
+    margin-left: 30%;
     z-index: 1;
     float:center;
 }
@@ -330,8 +337,8 @@ figure{
 #prof-pic-wrap{
     margin:20px 0px 0px 0px;
     max-width:20%;
-    
-    
+
+
 }
 .comments-section{
     position: absolute;
@@ -346,7 +353,7 @@ figure{
 
 /*Profile Page*/
 #avg-ratings{
-    
+
 }
 
 #prof-pic-container{
@@ -378,14 +385,14 @@ figure{
 
 }
 .profile-info{
-    
+
     display: block;
 position: absolute;
     float: right;
 }
-    
+
 .profile-info span{
-    
+
     display: block;
 
 }

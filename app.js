@@ -20,8 +20,8 @@ const index = require('./routes/index');
 const db = require('./routes/db');
 const upload = require('./routes/upload');
 const api = require('./routes/api');
-//const project = require('./routes/project');
-//const profile = require('./routes/profile');
+const project = require('./routes/project');
+// const profile = require('./routes/profile');
 const app = express();
 
 
@@ -61,10 +61,10 @@ app.use('/', auth.router);
 app.use('/db', db);
 app.use('/upload', upload);
 app.use('/api', api);
-//app.use('/project',project);
-//app.use('/profile',profile)
+app.use('/project',project);
+// app.use('/profile',profile)
 app.get('/protected', ensureLoggedIn('/login'), function(req, res, next) {
-  res.render('protected');
+  res.redirect('/');
 });
 app.use('/user', user);
 

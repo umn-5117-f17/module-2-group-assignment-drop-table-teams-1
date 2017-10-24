@@ -47,10 +47,71 @@ $(".project-list").click(function(){
 	var projid = $(this).attr('id').substring(7);
 	console.log(projid);
 	//$.get( "/api/project/" + projid);
-	window.location.href = "http://localhost:5000/api/project/"+ projid;
+	window.location.href = "http://localhost:5000/project/"+ projid;
 });
 
+$(".subject-button").click(function(){
+	var sub = $(this).attr('id');
+	// $.get("/" + sub);
+	// call search based on subject load index
+});
+$(".tag-button").click(function(){
+	// call search based on subject load index
+});
+$(".delete-project").click(function(){
+	console.log("in delete local")
+	var projid = $(this).attr('id');
 
+	$.ajax({
+		url: '/api/deleteProject/'+projid,
+		type: 'get',
+		success: function(res) {
+			window.location.href = "http://localhost:5000";
+		}
+	});
+});
+
+$(".update-description").click(function(){
+	console.log("in update desc local")
+	var projid = $(this).attr('id');
+	var newDescription = $('#newDesc').val();
+	console.log(newDescription);
+	js = {
+		id: projid,
+		item: "description",
+		value: newDescription
+	}
+
+	$.ajax({
+		url: '/api/updateDescription',
+		type: 'post',
+		data: js,
+		success: function(res) {
+			location.reload();
+		}
+	});
+});
+
+$(".add-tag-button").click(function(){
+	console.log("in add tag local")
+	var projid = $(this).attr('id');
+	console.log("id = " + projid)
+	var newTag = $('#tagsInput').val();
+	console.log(newTag);
+	js = {
+		id: projid,
+		value: newTag
+	}
+
+	$.ajax({
+		url: '/api/addTag',
+		type: 'post',
+		data: js,
+		success: function(res) {
+			location.reload();
+		}
+	});
+});
 
 
 function myFunction(x) {
