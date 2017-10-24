@@ -50,7 +50,7 @@
   <div class="projects-container">
     <ul>
       {{#each projects}}
-      <li class="project-list" id="project{{this._id}}">
+      <li class="project-list" id="project{{this._id}}"><a href="/project/{{this._id}}">
 
         <div id="hover-content">{{this.description}}
       </div><div class="project" id="project{{this._id}}">
@@ -60,7 +60,7 @@
     <figcaption>timestamp. no stars</figcaption>
 </figure>
       <div class="rating">
-       </div></div></li>
+      </div></div></a></li>
         {{/each}}
       </ul>
 

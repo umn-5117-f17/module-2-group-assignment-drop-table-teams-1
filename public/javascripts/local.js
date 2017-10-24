@@ -42,14 +42,6 @@ $(function() {
   });
 
 
-
-$(".project-list").click(function(){
-	var projid = $(this).attr('id').substring(7);
-	console.log(projid);
-	//$.get( "/api/project/" + projid);
-	window.location.href = "http://localhost:5000/project/"+ projid;
-});
-
 $(".subject-button").click(function(){
 	var sub = $(this).attr('id');
 	// $.get("/" + sub);
