@@ -1,28 +1,36 @@
-<table>
-  <tr>
-    <td>Profile Pic Goes Here</td>
-    <td></td>
-  </tr>
+<div class="user one" id="prof-pic-container"><h3>User Profile</h3></div>
+<aside id="avg-ratings"><h3> Average Project Rating</h3>
+  <div class="rating">
+    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+  </div>
+</aside>
+
+
+<div class=profile-info>
   <form action="/user/update" type="GET" enctype="application/x-www-form-urlencoded">
-    <tr>
-      <td>{{user.name}}</td>
-      <td><input type="text" name="name" placeholder="Full Name"></td>
-    </tr>
-    <tr>
-      <td>{{user.title}}</td>
-      <td><input type="text" name="title" placeholder='Title'></td>
-    </tr>
-    <tr>
-      <td>{{user.focusArea}}</td>
-      <td><input type="text" name="focusArea" placeholder="Focus Area"></td>
-    </tr>
-    <tr>
-      <td>Cumulative Rating</td>
-      <td>{{user.cumRating}}</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><input type="submit" value='Save Changes'></td>
-    </tr>
+     <span>{{this.name}}<input type="text" name="name" placeholder="Full Name"/></span>
+     <span><input type="text" name="Institutional Affiliation" placeholder='Institutional Affiliation'/></span>
+     <span>{{this.focusArea}}<input type="text" name="Area of Study" placeholder="Area of Study"/></span>
+     <span><textarea placeholder="Profile Bio" name="Text1" cols="40" rows="5"></textarea></span>
+     <span><input type="submit" value='Save Changes'></span>
   </form>
-</table>
+</div>
+
+<div class="account-projects-container">
+  <ul>
+    <h1 style="text-align: center; color:turquoise;">My Projects</h1>
+    {{#each projects}}
+    <li id="project-list">
+      <div id="hover-content">{{this.description}}</div>
+      <div class="project" id="project{{this._id}}">
+        <figure width="250" height="250">
+          <img src='http://localhost:5000/api/picture/{{this._id}}' alt='missing' />
+          <figcaption>{{this.title}}</figcaption>
+          <figcaption>timestamp. no stars</figcaption>
+        </figure>
+        <div class="rating"></div>
+      </div>
+    </li>
+    {{/each}}
+  </ul>
+</div>

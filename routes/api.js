@@ -26,7 +26,7 @@ router.post('/insertProject', upload.single('ajaxfile'), function(req, res, next
     var newItem = {
       createDate: new Date(),
       lastEditDate: "unimplemented",
-      userId: req.user.displayName,
+      userId: req.user.nickname,
       collaboratorId: "unimplemented",
        description: req.body.description,
        contentType: req.file.mimetype,
@@ -60,13 +60,9 @@ router.post('/insertProject', upload.single('ajaxfile'), function(req, res, next
   });
 });
 
-router.post('/deleteProject', function(req, res, next) {
-    /*
-      req = {
-        id: project ID
-      }
-    */
-    req.db.collection('projects').deleteOne({"_id": ObjectId(req.body.id)},function(err, results){
+router.get('/deleteProject/:projid', function(req, res, next) {
+    var project = req.params.projid;
+    req.db.collection('projects').deleteOne({"_id": ObjectId(project)},function(err, results){
       //send success status to client side
       res.status(200).send('success');
     });
@@ -89,6 +85,43 @@ router.post('/updateProject', function(req, res, next) {
     };
      req.db.collection('projects').updateOne(id, s,function(err, results){
        //send success status to client side
+       res.status(200).send('success');
+     });
+});
+
+router.post('/addTag', function(req, res, next) {
+    /*
+      req = {
+        id: project ID
+        value: value to be updated to
+      }
+    */
+    console.log(req.body.value);
+     req.db.collection('projects').updateOne({
+       "_id": ObjectId(req.body.id)
+     }, {
+       $addToSet: { "tags": req.body.value}
+     },function(err, results){
+       //send success status to client side
+       console.log("added tag")
+       res.status(200).send('success');
+     });
+});
+router.post('/updateDescription', function(req, res, next) {
+    /*
+      req = {
+        id: project ID
+        value: value to be updated to
+      }
+    */
+    console.log(req.body.value);
+     req.db.collection('projects').updateOne({
+       "_id": ObjectId(req.body.id)
+     }, {
+       $set: { "description": req.body.value}
+     },function(err, results){
+       //send success status to client side
+       console.log("updated description")
        res.status(200).send('success');
      });
 });
@@ -163,7 +196,7 @@ router.post('/search', function(req, res, next) {
 });
 
 router.get('/picture/:picture', function(req, res){
-  console.log("in get picture");
+  // console.log("in get picture");
   // assign the URL parameter to a variable
   var filename = req.params.picture;
   req.db.collection('projects')
@@ -176,6 +209,15 @@ router.get('/picture/:picture', function(req, res){
     // buffer element
   res.send(results.pdfProject.buffer);
   });
+});
+
+router.get('/project/:proj', function(req, res){
+  var id = req.params.proj;
+  console.log("project id is = " + id);
+  req.db.collection('projects')
+    .findOne({'_id': ObjectId(id)}, function(err, results) {
+      res.render('project', results);
+    })
 });
 
 
