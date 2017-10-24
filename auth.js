@@ -49,7 +49,7 @@ router.get(
   }),
   function(req, res, err) {
     //Create a user in the database when they sign in?
-    res.redirect('/');
+    res.redirect('/account/create');
   }
 );
 

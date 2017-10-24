@@ -27,7 +27,7 @@ router.get('/create', function(req, res){
       }
     }
   )
-  res.redirect('/account');
+  res.redirect('/');
 });
 
 router.get('/', function(req, res){
