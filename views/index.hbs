@@ -13,14 +13,14 @@
   </script>
 
 
-<div class="search-filter"> <div class="center">
+<!-- <div class="search-filter"> <div class="center">
   <button class="button button--secondary" id="last-five-years-filter-button">Last Five Years</button>
   <button class="button button--secondary" id="published-filter-button">Published</button>
    <button class="button button--secondary" id="has-pdf-filter-button">Has PDF</button>
 
      <button class="button button--secondary" id="Has Talk-filter-button">Has Talk</button>
   </div>
-</div>
+</div> -->
   <div class="widget-wrapper">
 
 
@@ -32,18 +32,17 @@
     </aside>
 
     <aside id="recent-posts-2" class="widget widget_recent_entries">
-
-      <h3 class="widget-title">Popular Posters</h3>
-      {{#each recentPosts}}
-      <li id="recentPosts">
-        <a href='http://localhost:5000/api/project/{{this._id}}'> {{this.title}}</a>
-      </li>
-      {else}
-      <li id="recentPosts">
-        <a href='http://localhost:5000/api/project/{{this._id}}'> no content</a>
-      </li>
-      {{/each}}
-    }
+      <div class="box">
+      <h3 class="widget-title">Popular Subjects</h3>
+      <ul>
+        <li><a href="/subject/Biology">Biology</a></li>
+        <li><a href="/subject/History">History</a></li>
+        <li><a href="/subject/Engineering">Engineering</a></li>
+        <li><a href="/subject/CSCI">Computer Science</a></li>
+        <li><a href="/subject/Foreign_Language">Foreign Language</a></li>
+        <li><a href="/subject/Art">Art</a></li>
+      </ul>
+    </div>
   </aside>
 </div>
   <h1 style="text-align: center; color:turquoise;">Projects</h1>
