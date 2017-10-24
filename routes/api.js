@@ -184,14 +184,25 @@ router.post('/updateUser', function(req, res, next) {
 
 router.post('/search', function(req, res, next) {
     console.log("tst");
-    var search_text = req.body.search;
+    var search_text = req.body.submit;
     console.log(search_text);
     //res.status(200).send('success');
-    req.db.collection('projects').find({'tags' : search_text}, function(err, results){
-      console.log(results);
-      res.status(200).send('success');
+    //req.db.collection('projects').find({'tags' : search_text}, function(err, results){
+    req.db.collection('projects').find({},
+      {_id:0, title:1, pdfProject: 3, tags:{$elemMatch:{$eq : search_text}}}).toArray(function(err, results){
+
+      console.log("type of results");
+      console.log(typeof results);
+      //var doc;
+      //while(results.hasNext()) {
+      //  doc = results.next();
+      //  console.log(doc.title);
+      //}
+      //results.forEach(console.log);
+      res.render('index', {title : 'Project Sharing', projects : results});
+      //res.status(200).send('success');
     });
-    console.log("after query");
+    //console.log("after query");
     //console.log(results);
 });
 
