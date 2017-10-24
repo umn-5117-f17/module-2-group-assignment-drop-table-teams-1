@@ -40,6 +40,8 @@ router.get('/', function(req, res){
           });
           // console.log(results);
         } else {
+          console.log('WTFF');
+          res.redirect('/create');
           console.log('User not found');
         }
       }

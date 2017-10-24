@@ -150,7 +150,7 @@ router.post('/updateUser', function(req, res, next) {
 });
 
 router.get('/picture/:picture', function(req, res){
-  console.log("in get picture");
+  // console.log("in get picture");
   // assign the URL parameter to a variable
   var filename = req.params.picture;
   req.db.collection('projects')
