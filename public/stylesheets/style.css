@@ -9,6 +9,9 @@
     display:none;
 }
 
+#searchsubmit {
+  margin-bottom: 13px;
+}
 .navigation {
     width: 100%;
     position: fixed;
