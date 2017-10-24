@@ -1,19 +1,16 @@
 const express = require('express');
 var router = express.Router();
 
-// router.get('/', function(req, res){
-//   res.render('profile')
-// });
-
 router.get('/create', function(req, res){
   var userObj = {
     'userId' : req.user._json.sub,
     'profilePic': req.user.picture,
     'name': req.user.name.givenName + ' ' + req.user.name.familyName,
-    'title': 'No title',
-    'focusArea': 'No focus',
-    'project_Id': undefined,
-    'cumRating': 0
+    'focusArea': null,
+    'project_Id': [],
+    'cumRating': 0,
+    'intstitution': null,
+    'bio': null
   };
   var db = req.db.collection('Users');
   db.findOne({'userId': req.user._json.sub}).then(
@@ -32,39 +29,53 @@ router.get('/create', function(req, res){
 
 router.get('/', function(req, res){
   var db = req.db.collection('Users');
+  // var p = req.db.collection('projects').find({'userId': req.user._json.sub}).forEach(console.log);
+  // var project = req.db.collection('projects').find({'userId': req.user._json.sub}).toArray();
   db.findOne({'userId': req.user._json.sub}).then(
       function(results){
         if(results){
-          res.render('profile',{
-            user: results
+          var u = results;
+          // console.log('this is happening');
+          req.db.collection('projects').find({'userId': req.user._json.sub}).toArray(function(err, results){
+            // console.log('the house is on fire');
+            // results.forEach(console.log);
+            res.render('profile',{
+              user: u,
+              projects: results
+            });
           });
-          console.log(results);
         } else {
-          console.log('WTFF');
           res.redirect('/account/create');
           console.log('User not found');
         }
       }
   );
   // req.db.collection('Users').find().forEach(console.log);
-  // console.log('done reading');
 });
 
 router.get('/delete', function(req, res){
     var db = req.db.collection('Users');
-    db.deleteOne({'userId' : req.user._json.sub});
+    db.deleteMany({'userId' : req.user._json.sub});
+    res.redirect('/account');
 });
 
 router.get('/update', function(req, res){
   var db = req.db.collection('Users');
   var form = req.query;
-  console.log(form);
-  db.updateOne({'userId': req.user._json.sub}, {$set : {'name': form.name, 'focusArea': form.focusArea, 'title': form.title}}).then(
-    function(results){
-      console.log('User profile has been updated.');
-      res.redirect('/account');
-    }
-  );
+  if(form.name != ''){
+    db.updateOne({'userId': req.user._json.sub}, {$set : {'name': form.name}});
+  }
+  if(form.focusArea != ''){
+    db.updateOne({'userId': req.user._json.sub}, {$set : {'focusArea': form.focusArea}});
+  }
+  if(form.intstitution != ''){
+    db.updateOne({'userId': req.user._json.sub}, {$set : {'intstitution' : form.intstitution}});
+  }
+  if(form.bio != ''){
+    db.updateOne({'userId': req.user._json.sub}, {$set : {'bio': form.bio}});
+  }
+  console.log('User successfully updated.');
+  res.redirect('/account');
 });
 
 module.exports = router;

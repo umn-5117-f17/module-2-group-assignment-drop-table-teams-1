@@ -26,7 +26,7 @@ router.post('/insertProject', upload.single('ajaxfile'), function(req, res, next
     var newItem = {
       createDate: new Date(),
       lastEditDate: "unimplemented",
-      userId: req.user.nickname,
+      userId: req.user._json.sub,
       collaboratorId: "unimplemented",
        description: req.body.description,
        contentType: req.file.mimetype,
@@ -180,6 +180,19 @@ router.post('/updateUser', function(req, res, next) {
       res.status(200).send('success');
     });
 
+});
+
+router.post('/search', function(req, res, next) {
+    console.log("tst");
+    var search_text = req.body.search;
+    console.log(search_text);
+    //res.status(200).send('success');
+    req.db.collection('projects').find({'tags' : search_text}, function(err, results){
+      console.log(results);
+      res.status(200).send('success');
+    });
+    console.log("after query");
+    //console.log(results);
 });
 
 router.get('/picture/:picture', function(req, res){

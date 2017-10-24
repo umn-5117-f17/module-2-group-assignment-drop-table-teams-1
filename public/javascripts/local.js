@@ -1,16 +1,33 @@
+var months = new Array(12);
+months[0] = "January";
+months[1] = "February";
+months[2] = "March";
+months[3] = "April";
+months[4] = "May";
+months[5] = "June";
+months[6] = "July";
+months[7] = "August";
+months[8] = "September";
+months[9] = "October";
+months[10] = "November";
+months[11] = "December";
+
 $(function() {
+	$('.date-span').each(function(index,el){
+	var tmp = el.innerHTML;
+	console.log(tmp);
+	var new_date = convertDate(tmp);
+	console.log(new_date);
+	el.innerHTML =new_date;
+	});
 	$(".project").each(function(index, el) {
 		var proj_id = $(el).attr('id');
-		console.log(proj_id);
-		//@TODO
-		//Query mongo for project rating, compute mean, set means for html
-	});
+		});
 	$('label').click(function() {
     $('label').removeClass('active');
     $(this).addClass('active');
 });
 });
-
   $('#deleteButton').click(function(e) {
     $.ajax({
       url: '/user/delete',
@@ -104,6 +121,18 @@ $(".add-tag-button").click(function(){
 		}
 	});
 });
+
+function convertDate(dateStr){
+	var timestamp = new Date(dateStr);
+	var month = timestamp.getMonth();
+	var day = timestamp.getDay();
+	var year = timestamp.getFullYear();
+	var result = "".concat(months[month]);
+	result = result +", ";
+	result = result + String(day) +", " + String(year);
+
+	return result;
+};
 
 
 function myFunction(x) {
