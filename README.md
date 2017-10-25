@@ -20,11 +20,12 @@ CSCI 5117, Fall 2017, [assignment description](https://docs.google.com/document/
 
 **Describe the most challenging features you implemented
 (one sentence per bullet, maximum 4 bullets):**
-*Interactive navigation (e.g., hamberger menu and rating scale) were tough to implement since they were both very tempermental.
-*Key word search allows users to explore all posters based on user defined keywords.
-*Handling images with Mongo DB was a roadblock, but we overcame.
-*Css is hard...
-* ...
+
+* Interactive navigation (e.g., hamberger menu and rating scale) were tough to implement since they were both very tempermental.
+* Key word search allows users to explore all posters based on user defined keywords.
+* Handling images with Mongo DB was a roadblock, but we overcame.
+* Css is hard...
+<!-- * ... -->
 
 
 ## Screenshots of Site
@@ -32,7 +33,9 @@ CSCI 5117, Fall 2017, [assignment description](https://docs.google.com/document/
 **[Add a screenshot of each key page (maximum 4)](https://stackoverflow.com/questions/10189356/how-to-add-screenshot-to-readmes-in-github-repository)
 along with a very brief caption:**
 
-![](https://media.giphy.com/media/XIqCQx02E1U9W/giphy.gif)
+![](https://i.imgur.com/E9JVs2d.png)This is what our home page looks like
+![](https://i.imgur.com/RxLxzL0.png)This is what our account page looks like
+![](https://i.imgur.com/q2XCO9d.png)This is what submitting a new project looks like
 
 
 ## External Dependencies
