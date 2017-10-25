@@ -34,7 +34,7 @@ $(function() {
       type: 'POST',
       success: function(res) {
         console.log('response', res);
-        window.location.href = "https://secret-hamlet-97212.herokuapp.com/thanks";
+        window.location.href = "https://agile-lake-41083.herokuapp.com/thanks";
       }
     });
   });

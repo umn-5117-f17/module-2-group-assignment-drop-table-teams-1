@@ -75,7 +75,7 @@ $(".delete-project").click(function(){
 		url: '/api/deleteProject/'+projid,
 		type: 'get',
 		success: function(res) {
-			window.location.href = "https://secret-hamlet-97212.herokuapp.com/";
+			window.location.href = "https://agile-lake-41083.herokuapp.com/";
 		}
 	});
 });
