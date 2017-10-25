@@ -15,10 +15,9 @@ router.post('/insertProject', upload.single('ajaxfile'), function(req, res, next
   }
   if (req.file.mimetype == 'image/jpeg') {
     // read the img file from tmp in-memory location
-    console.log(req.file.path);
-    var newImg = fs.readFileSync(req.file.path);
+    // var newImg = fs.readFileSync(req.file);
     // encode the file as a base64 string.
-    var encImg = newImg.toString('base64');
+    var encImg = req.file.buffer.toString('base64');
     // parse tags by comma separated values
     var noSpaceTags = req.body.tags.replace( /\s/g, "")
     var tags = noSpaceTags.split(',');
