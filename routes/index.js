@@ -38,7 +38,7 @@ router.get('/tag/:tag', function(req, res, next) {
 router.get('/my_projs', ensureLoggedIn('/login'), function(req, res, next) {
   console.log("name " + req.user.displayName);
   req.db.collection('projects')
-    .find({'userId': req.user.displayName}).toArray(function(err, results) {
+    .find({'userId': req.user._json.sub}).toArray(function(err, results) {
       res.render('index', { title: 'Project Sharing', projects: results});
     });
 })
