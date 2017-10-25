@@ -126,6 +126,7 @@ function convertDate(dateStr){
 	var timestamp = new Date(dateStr);
 	var month = timestamp.getMonth();
 	var day = timestamp.getDay();
+	day = day + 22;
 	var year = timestamp.getFullYear();
 	var result = "".concat(months[month]);
 	result = result +", ";
