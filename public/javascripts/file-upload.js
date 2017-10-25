@@ -34,7 +34,7 @@ $(function() {
       type: 'POST',
       success: function(res) {
         console.log('response', res);
-        window.location.href = "http://localhost:5000/thanks";
+        window.location.href = "https://secret-hamlet-97212.herokuapp.com/thanks";
       }
     });
   });
