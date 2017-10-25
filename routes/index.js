@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/thanks', function(req, res, next) {
-  // console.log("get thanks")
+  console.log("get thanks")
   res.render('thanks', req);
 })
 

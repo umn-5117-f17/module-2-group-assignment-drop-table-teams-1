@@ -75,7 +75,7 @@ $(".delete-project").click(function(){
 		url: '/api/deleteProject/'+projid,
 		type: 'get',
 		success: function(res) {
-			window.location.href = "http://localhost:5000";
+			window.location.href = "https://agile-lake-41083.herokuapp.com/";
 		}
 	});
 });
