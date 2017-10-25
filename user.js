@@ -33,7 +33,6 @@ router.get('/', function(req, res){
       function(results){
         if(results){
           var u = results;
-
           req.db.collection('projects').find({'userId': req.user._json.sub}).toArray(function(err, results){
             res.render('profile',{
               user: u,
