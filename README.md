@@ -32,9 +32,9 @@ CSCI 5117, Fall 2017, [assignment description](https://docs.google.com/document/
 **[Add a screenshot of each key page (maximum 4)](https://stackoverflow.com/questions/10189356/how-to-add-screenshot-to-readmes-in-github-repository)
 along with a very brief caption:**
 
-![](https://i.imgur.com/E9JVs2d.png)This is what our home page looks like
-![](https://i.imgur.com/RxLxzL0.png)This is what our account page looks like
-![](https://i.imgur.com/q2XCO9d.png)This is what submitting a new project looks like
+![]This is what our home page looks like(https://i.imgur.com/E9JVs2d.png)
+![]This is what our account page looks like(https://i.imgur.com/RxLxzL0.png)
+![]This is what submitting a new project looks like(https://i.imgur.com/q2XCO9d.png)
 
 
 ## External Dependencies
