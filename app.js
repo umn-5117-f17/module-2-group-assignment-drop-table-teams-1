@@ -13,15 +13,15 @@ const MongoStore = require('connect-mongo')(session);
 const _ = require('lodash');
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
 
-const auth = require('./auth');
-const user = require('./user');
+const auth = require('/auth');
+const user = require('/user');
 
-const index = require('./routes/index');
-const db = require('./routes/db');
-const upload = require('./routes/upload');
-const api = require('./routes/api');
-const project = require('./routes/project');
-// const profile = require('./routes/profile');
+const index = require('/routes/index');
+const db = require('/routes/db');
+const upload = require('/routes/upload');
+const api = require('/routes/api');
+const project = require('/routes/project');
+// const profile = require('/routes/profile');
 const app = express();
 
 

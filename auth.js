@@ -1,6 +1,6 @@
 const debug = require('debug')('app:auth');
 
-const db = require('./routes/db');
+const db = require('/routes/db');
 
 const express = require('express');
 const passport = require('passport');
