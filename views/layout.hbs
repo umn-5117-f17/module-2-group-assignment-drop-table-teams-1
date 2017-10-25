@@ -12,43 +12,33 @@
 <!-- <link href="jquery.touchPDF.css" rel="stylesheet" media="screen" /> -->
 </head>
 <body>
-
+  <!-- This section is for the nav bar. -->
   <div id="topNav" class="navigation">
-  <div id="closebtn" onclick="myFunction(this)">
-  <div class="bar1"></div>
-  <div class="bar2"></div>
-  <div class="bar3"></div>
+    <div id="closebtn" onclick="myFunction(this)">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+    <ul class="menulist" style="display: none;">
+      <li><a href="/">Home</a></li>
+      {{#if user}}
+        <li><a class="menuitems" href="/upload">New Project</a></li>
+        <li><a class="menuitems" href="/my_projs">My Projects</a></li>
+        <li><a class="menuitems" href="/account">Edit Account</a></li>
+        <li><a class="menuitems" href="/logout">Logout</a></li>
+      {{ else }}
+        <li><a class="menuitems" href="/login">Login</a></li>
+      {{/if}}
+    </ul>
   </div>
-
-<ul class="menulist" style="display: none;">
-    <li><a href="/">Home</a></li>
-  {{#if user}}
-    <li><a class="menuitems" href="/upload">New Project</a></li>
-    <li><a class="menuitems" href="/my_projs">My Projects</a></li>
-    <li><a class="menuitems" href="/account">Edit Account</a></li>
-    <li><a class="menuitems" href="/logout">Logout</a></li>
-  {{ else }}
-    <li><a class="menuitems" href="/login">Login</a></li>
-  {{/if}}
-</ul>
-
-
-
-</div>
-
-
-    <section class="section">
-      <div class="content">
-        {{{body}}}
-      </div>
-
-    </section>
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="/javascripts/local.js"></script>
-    {{#each scripts}}
-    <script src="/javascripts/{{this}}"></script>
-    {{/each}}
+  <!-- end of nav bar section -->
+  <div id='body'>
+    {{{body}}}
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="/javascripts/local.js"></script>
+  {{#each scripts}}
+  <script src="/javascripts/{{this}}"></script>
+  {{/each}}
   </body>
   </html>

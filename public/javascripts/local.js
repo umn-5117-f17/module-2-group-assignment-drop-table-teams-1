@@ -28,7 +28,6 @@ $(function() {
     $(this).addClass('active');
 });
 });
-
   $('#deleteButton').click(function(e) {
     $.ajax({
       url: '/user/delete',

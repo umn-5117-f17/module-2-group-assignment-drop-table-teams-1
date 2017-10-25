@@ -1,36 +1,68 @@
-<div class="user one" id="prof-pic-container"><h3>User Profile</h3></div>
-<aside id="avg-ratings"><h3> Average Project Rating</h3>
-  <div class="rating">
-    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-  </div>
-</aside>
-
-
-<div class=profile-info>
-  <form action="/user/update" type="GET" enctype="application/x-www-form-urlencoded">
-     <span>{{this.name}}<input type="text" name="name" placeholder="Full Name"/></span>
-     <span><input type="text" name="Institutional Affiliation" placeholder='Institutional Affiliation'/></span>
-     <span>{{this.focusArea}}<input type="text" name="Area of Study" placeholder="Area of Study"/></span>
-     <span><textarea placeholder="Profile Bio" name="Text1" cols="40" rows="5"></textarea></span>
-     <span><input type="submit" value='Save Changes'></span>
-  </form>
-</div>
-
-<div class="account-projects-container">
-  <ul>
-    <h1 style="text-align: center; color:turquoise;">My Projects</h1>
-    {{#each projects}}
-    <li id="project-list">
-      <div id="hover-content">{{this.description}}</div>
-      <div class="project" id="project{{this._id}}">
-        <figure width="250" height="250">
-          <img src='http://localhost:5000/api/picture/{{this._id}}' alt='missing' />
-          <figcaption>{{this.title}}</figcaption>
-          <figcaption>timestamp. no stars</figcaption>
-        </figure>
-        <div class="rating"></div>
+<table>
+  <!-- <tr>
+    <td>
+      <form action="/account/delete" type="GET" enctype="application/x-www-form-urlencoded">
+        <input type="submit" value="delete">
+      </form>
+    </td>
+  </tr> -->
+  <tr><td><div class="container">
+      <img  src="{{user.profilePic}}" alt="hacksparrow" ></img>
+      <h3>User Profile</h3>
+      <aside id="avg-ratings"><h3> Average Project Rating</h3>
+        <div class="rating">
+          <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+        </div>
+      </aside>
+  </div></td></tr>
+  <tr>
+    <td><div class="container">
+      <table class='profile-info'>
+        <form action="/account/update" type="GET" enctype="application/x-www-form-urlencoded">
+           <tr><div class="columns">
+             <td><div class="column">{{user.name}}</div></td>
+             <td><div class="column"><input type="text" name="name" placeholder="Full Name"/></div></td>
+           </div></tr>
+           <tr><div class="columns">
+             <td><div class="column">{{user.intstitution}}</div></td>
+             <td><div class="column"><input type="text" name="intstitution" placeholder='Institutional Affiliation'/></div></td>
+           </div></tr>
+           <tr><div class="columns">
+             <td><div class="column">{{user.focusArea}}</div></td>
+             <td><div class='column'><input type="text" name="focusArea" placeholder="Area of Study"/></div></td>
+           </div></tr>
+           <tr><div class="columns">
+             <td><div class="column">{{user.bio}}</div></td>
+             <td><div class="column"><textarea placeholder="Profile Bio" name="bio" cols="40" rows="5"></textarea></div></td>
+           </div></tr>
+           <tr><div class="columns">
+             <td><div class="column"></div></td>
+             <td><div class="column"><input class="button is-primary" type="submit" value='Save Changes'></div></td>
+           </div></tr>
+        </form>
+      </table>
+    </div></td>
+  </tr>
+  <tr>
+    <td>
+      <div class="account-projects-container">
+        <ul>
+          <h1 style="text-align: center; color:turquoise;">My Projects</h1>
+          {{#each projects}}
+          <li id="project-list">
+            <div id="hover-content">{{this.description}}</div>
+            <div class="project" id="project{{this._id}}">
+              <figure>
+                <img width="250px" height="250px" src='http://localhost:5000/api/picture/{{this._id}}' alt='missing' />
+                <figcaption>{{this.title}}</figcaption>
+                <figcaption>timestamp. no stars</figcaption>
+              </figure>
+              <div class="rating"></div>
+            </div>
+          </li>
+          {{/each}}
+        </ul>
       </div>
-    </li>
-    {{/each}}
-  </ul>
-</div>
+    </td>
+  </tr>
+</table>
