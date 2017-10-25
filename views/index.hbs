@@ -1,4 +1,4 @@
-<div class="index-page">
+<div class="index-page container">
 
   <script type="text/javascript">
 
@@ -48,22 +48,16 @@
   </aside>
 </div>
   <h1 style="text-align: center; color:turquoise;">Projects</h1>
-  <div class="projects-container">
-    <ul>
+  <div class="columns is-multiline">
       {{#each projects}}
-      <li class="project-list" id="project{{this._id}}"><a href="/project/{{this._id}}">
-
-        <div id="hover-content">{{this.description}}
-      </div><div class="project" id="project{{this._id}}">
-        <figure width="250" height="250">
-    <img src='http://localhost:5000/api/picture/{{this._id}}' alt='missing' />
+      <div class="column is-one-third" id="project{{this._id}}">
+        <a href="/project/{{this._id}}">
+        <img src='http://localhost:5000/api/picture/{{this._id}}' alt='missing' />
     <figcaption>{{this.title}}</figcaption>
     <figcaption id="date"><span class="date-span" id="date"> {{this.createDate}}</span></figcaption>
-</figure>
       <div class="rating">
-      </div></div></a></li>
+      </div></a></div></a>
         {{/each}}
-      </ul>
 
     </div>
   </div>
