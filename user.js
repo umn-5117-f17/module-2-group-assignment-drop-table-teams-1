@@ -29,16 +29,14 @@ router.get('/create', function(req, res){
 
 router.get('/', function(req, res){
   var db = req.db.collection('Users');
-  // var p = req.db.collection('projects').find({'userId': req.user._json.sub}).forEach(console.log);
-  // var project = req.db.collection('projects').find({'userId': req.user._json.sub}).toArray();
   db.findOne({'userId': req.user._json.sub}).then(
       function(results){
         if(results){
           var u = results;
-          console.log('this is happening');
+          // console.log('this is happening');
           req.db.collection('projects').find({'userId': req.user._json.sub}).toArray(function(err, results){
-            console.log('the house is on fire');
-            results.forEach(console.log);
+            // console.log('the house is on fire');
+            // results.forEach(console.log);
             res.render('profile',{
               user: u,
               projects: results

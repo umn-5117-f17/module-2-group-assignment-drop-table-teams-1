@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var multer  = require('multer');
-var upload = multer({limits: {fileSize: 2000000 },dest:'/uploads/' });
+var upload = multer({limits: {fileSize: 2000000 }});
 var ObjectId = require('mongodb').ObjectId;
 var fs = require('fs-extra');
 var util = require('util');
