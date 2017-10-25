@@ -29,8 +29,6 @@ router.get('/create', function(req, res){
 
 router.get('/', function(req, res){
   var db = req.db.collection('Users');
-  // var p = req.db.collection('projects').find({'userId': req.user._json.sub}).forEach(console.log);
-  // var project = req.db.collection('projects').find({'userId': req.user._json.sub}).toArray();
   db.findOne({'userId': req.user._json.sub}).then(
       function(results){
         if(results){
